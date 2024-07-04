@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IRIS Species</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
+    <!-- https://fonts.google.com/specimen/Open+Sans -->
+    <link rel="stylesheet" href="static/css/all.min.css">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="static/css/tooplate-style.css">
+
+    <!-- <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}"> -->
+</head>
+
+
+<body class="tm-bg-dark">
+    <main class="tm-container masonry">
+        <div class="item tm-bg-white tm-block tm-block-left" data-desktop-seq-no="1" data-mobile-seq-no="1">
+            <p class="tm-hero-text">Iris is a flowering plant genus with showy flowers.The petals resemble a classic fleur-de-lis symbol, with some
+                 petals rising up while others cascade down. These tall petals stand like signal flags, waving in potential 
+                 pollinators.</p>
+            <header class="tm-block-brand">
+                <div class="tm-bg-primary-dark tm-text-white tm-block-brand-inner">
+                    <i class="fas fa-braille fa-3x"></i>
+                    <h1 class="tm-brand-name">IRIS Species</h1>
+                </div>
+            </header>
+        </div>
+        <div class="item" data-desktop-seq-no="2" data-mobile-seq-no="4">
+            <img src="static/img/Iris21.jpg" alt="Image" class="tm-img-left">
+        </div>
+        <div class="item tm-bg-secondary tm-text-white tm-block tm-block-wider tm-block-pad tm-block-left-2" data-desktop-seq-no="3"
+            data-mobile-seq-no="5">
+            <i class="fas fa-award fa-4x tm-block-icon"></i>
+            <p>The Iris has max height 38 cm and max width of 25 cm.The Iris versicolor has a max height of 71 cm 
+                and a max width of 50 cm.The Iris virginica has with a max height of 120 cm and max width of 50 cm.</p>
+            <div class="tm-text-right">
+                <a href="#" class="tm-btn tm-btn-small tm-btn-primary tm-mt">Read More</a>
+            </div>
+        </div>
+        <div class="item" data-desktop-seq-no="4" data-mobile-seq-no="8">
+            <img src="static/img/iris4.jpg" alt="Image" class="tm-img-left">
+        </div>
+        
+        <div class="item" data-desktop-seq-no="6" data-mobile-seq-no="2">
+            <img src="static/img/iris11.jpg " alt="Image">
+        </div>
+        <div class="item tm-block-right" data-desktop-seq-no="7" data-mobile-seq-no="3">
+            <div class="tm-block-right-inner tm-bg-primary-light tm-text-white tm-block tm-block-wider tm-block-pad">
+                <header>
+                    <h2 class="tm-text-uppercase">
+                        About The Website
+                    </h2>
+                </header>
+                <p>In this website you can check the species of the Iris flower by giving its petal length,
+                    sepal length, petal width and sepal width. The species of the flower will be predicted by the
+                    machine learning algorithm.
+                </p>
+                <p class="tm-mt tm-mb-small">You can also check it !!!!<br>
+                    There are three species of Iris flowers: Iris setosa, Iris versicolor, and Iris virginica.
+                    the setosa is the smallest then versicolor ,then virginica is the tallest of the three.
+                <!-- -->
+            </div>
+        </div>
+
+        <div class="item" data-desktop-seq-no="8" data-mobile-seq-no="6">
+            <img src="static/img/iris3.jpg" alt="Image">
+        </div>
+
+        <div class="item tm-bg-white tm-block tm-form-section" data-desktop-seq-no="9" data-mobile-seq-no="7">
+            <div class="tm-form-container tm-block-pad tm-pb-0">
+                <header>
+                    <h2 class="tm-text-uppercase tm-text-gray-light tm-mb">
+                        <center>Species</center>
+                    </h2>
+                </header>
+                <form action="{{ url_for('prediction')}}" class="tm-contact-form" method="POST">
+                    <div class="tm-form-group">
+                        <input type="text" id="sepal length" name="sepal length" class="form-control" placeholder="Sepal length (in cm)" required/>
+                    </div>
+                    <div class="tm-form-group">
+                        <input type="text" id="sepal width" name="sepal width" class="form-control" placeholder="Sepal width (in cm)" required/>
+                    </div>
+                    <div class="tm-form-group">
+                        <input type="text" id="petal length" name="petal length" class="form-control" placeholder="Petal length (in cm)" required/>
+                    </div>
+                    <div class="tm-form-group">
+                        <input type="text" id="petal width" name="petal width" class="form-control" placeholder="Petal width (in cm)" required/>
+                    </div>
+    
+
+                    <div class="tm-text-right">
+                        <center><button type="submit" class="tm-btn tm-btn-secondary tm-btn-pad-big">Submit</button></center>
+                        <div id="myPopup" class="popup">
+                            <div class="popup-content">
+                                <h1 style="color:green;">The species of the Iris flower is:</h1>
+                                <h2 style="color:green;">{{ prediction }}</h2>
+                                <br>
+                                <br>
+                                <button id="closePopup">Close</button>
+                            </div>
+                        </div>
+                    
+                        <script>
+                            const myButton = document.getElementById("myButton");
+                            const myPopup = document.getElementById("myPopup");
+                            const closePopup = document.getElementById("closePopup");
+                    
+                            myButton.addEventListener("click", function () {
+                                myPopup.style.display = "block";
+                            });
+                    
+                            
+                        </script>
+                    </div>
+                </form>
+            </div>
+
+            <div class="tm-form-section-tag">
+                <div class="tm-bg-secondary tm-text-white tm-block-pad tm-form-section-tag-inner">
+                    <header>
+                        <h2></h2>
+                    </header>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    
+</body>
+
+</html>
